@@ -13,23 +13,20 @@ input.forEach((item, index) => {
 });
 
 // Показник мінливості
+const S = math.pow(
+  math.multiply(
+    ...input.map((item) => item / math.sum(input))
+  )
+  , 1 / input.length);
+
 console.log(
   `S = ${
-    math.pow(
-      math.multiply(
-        ...input.map((item) => item / math.sum(input))
-      )
-      , 1 / input.length)}`
+    S}`
 );
 
 // Коефіцієнт мінливості
 console.log(
-  `V = ${
-    (    math.pow(
-      math.multiply(
-        ...input.map((item) => item / math.sum(input))
-      )
-      , 1 / input.length) * 100).toFixed(5)}%`
+  `V = ${ (S * 100).toFixed(5)}%`
 );
 
 // Похибка виборчої частки
